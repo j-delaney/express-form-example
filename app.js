@@ -4,8 +4,24 @@ var app = express();
 app.set('view engine', 'hjs');
 
 app.get('/', function (req, res) {
+    res.redirect('stage1')
+});
+
+app.get('/stage1', function (req, res) {
     res.render('stage1', {
-        test: 'Hello world'
+        test: 'Stage 1'
+    });
+});
+
+app.get('/stage2', function (req, res) {
+    res.render('stage2', {
+        test: 'Stage 2'
+    });
+});
+
+app.get('/stage3', function (req, res) {
+    res.render('stage3', {
+        test: 'Stage 3'
     });
 });
 
