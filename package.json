@@ -9,7 +9,10 @@
     "url": "https://github.com/j-delaney/express-form-example"
   },
   "dependencies": {
+    "body-parser": "^1.12.0",
     "express": "^4.11.2",
-    "hjs": "0.0.6"
+    "express-session": "^1.10.3",
+    "hjs": "0.0.6",
+    "multer": "^0.1.7"
   }
 }
