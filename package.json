@@ -1,0 +1,14 @@
+{
+  "name": "express-form-example",
+  "version": "0.0.1",
+  "description": "An example project to showcase how forms and form validation should work for CSE112",
+  "author": "J Delaney <j.delaney.sd@gmail.com>",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-delaney/express-form-example"
+  },
+  "dependencies": {
+    "express": "^4.11.2"
+  }
+}
