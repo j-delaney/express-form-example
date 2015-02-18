@@ -9,6 +9,7 @@
     "url": "https://github.com/j-delaney/express-form-example"
   },
   "dependencies": {
-    "express": "^4.11.2"
+    "express": "^4.11.2",
+    "hjs": "0.0.6"
   }
 }
