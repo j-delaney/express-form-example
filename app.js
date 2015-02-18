@@ -30,6 +30,8 @@ app.get('/', function (req, res) {
     res.redirect('stage1')
 });
 
+//STAGE 1
+
 /**
  * This is called when someone visits localhost:3000/stage1 as a get request.
  * Most pages are viewed as a get request. This is the default for when someone
@@ -57,8 +59,11 @@ app.post('/stage1', function (req, res) {
     if (fullname === '' || email === '') {
         //One or both have been left blank
         //Render `stage1.hjs` with an error value now
+        //Also pass in `fullname` and `email` so the user doesn't have to re-enter them.
         res.render('stage1', {
-            error: 'You must fill in all fields.'
+            error: 'You must fill in all fields.',
+            fullname: fullname,
+            email: email
         });
     } else {
         //Both fields are filled
@@ -78,10 +83,27 @@ app.post('/stage1', function (req, res) {
     }
 });
 
+
+//STAGE 2
+
+/**
+ * This is the get request for stage2. The first thing it will do
+ * is check to see if the `fullname` and `email` session values
+ * have been set. If they haven't then that means the user hasn't
+ * gone through stage 1 yet, so we'll redirect them.
+ */
 app.get('/stage2', function (req, res) {
-    res.render('stage2', {
-        test: 'Stage 2'
-    });
+    //Check to see if the user has gone through stage 1
+    if (!req.session.fullname || !req.session.email) {
+        //They haven't so let's redirect them
+        res.redirect('stage1');
+    } else {
+        res.render('stage2');
+    }
+});
+
+app.post('/stage2', function (req, res) {
+
 });
 
 app.get('/stage3', function (req, res) {

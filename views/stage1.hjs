@@ -21,7 +21,11 @@
 
             <div class="col-md-10">
                 <input type="text"
-                       class="form-control" id="fullname" name="fullname" placeholder="Full Name">
+                       class="form-control"
+                       id="fullname"
+                       name="fullname"
+                       value="{{ fullname }}"
+                       placeholder="Full Name">
             </div>
         </div>
 
@@ -29,7 +33,12 @@
             <label for="email" class="col-md-2 control-label">Email</label>
 
             <div class="col-md-10">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <input type="email"
+                       class="form-control"
+                       id="email"
+                       name="email"
+                       value="{{ email }}"
+                       placeholder="Email">
             </div>
         </div>
 
