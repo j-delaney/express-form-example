@@ -102,8 +102,35 @@ app.get('/stage2', function (req, res) {
     }
 });
 
+/**
+ * Pretty much the same idea as stage 1 post request. Check if the passwords
+ * match and if they don't render the error, otherwise bring the user to the
+ * 3rd stage.
+ */
 app.post('/stage2', function (req, res) {
+    //Put the session vars into local ones
+    var password1 = req.body.password1;
+    var password2 = req.body.password2;
 
+    //Check to see if they are blank or don't match
+    if (password1 === '' || password1 !== password2) {
+        //Show an error to the user
+        res.render('stage2', {
+            err: 'Your passwords must be nonblank and must match.'
+        });
+    } else {
+        //Set and save the session
+        req.session.password = password1;
+
+        req.session.save(function (err) {
+            if (err) {
+                console.error('Error saving session', err);
+            }
+        });
+
+        //Redirect to the 3rd stage
+        res.redirect('stage3');
+    }
 });
 
 app.get('/stage3', function (req, res) {
