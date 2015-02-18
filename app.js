@@ -133,10 +133,26 @@ app.post('/stage2', function (req, res) {
     }
 });
 
+
+//STAGE 3
+
+/**
+ * There is only a get router for the third stage since this is just displaying
+ * data, not handling any form submissions.
+ */
 app.get('/stage3', function (req, res) {
-    res.render('stage3', {
-        test: 'Stage 3'
-    });
+    //Check to see if any of the session vars are empty
+    if (!req.session.fullname || !req.session.email || !req.session.password) {
+        //Redirect to stage 1 since they're missing stuff
+        res.redirect('stage1');
+    } else {
+        //Display the data we've collected
+        res.render('stage3', {
+            fullname: req.session.fullname,
+            email: req.session.email,
+            password: req.session.password
+        });
+    }
 });
 
 var server = app.listen(3000, function () {
