@@ -116,7 +116,7 @@ app.post('/stage2', function (req, res) {
     if (password1 === '' || password1 !== password2) {
         //Show an error to the user
         res.render('stage2', {
-            err: 'Your passwords must be nonblank and must match.'
+            error: 'Your passwords must be nonblank and must match.'
         });
     } else {
         //Set and save the session
